@@ -181,6 +181,6 @@ Then open `docs/index.html` in your browser.
 
 <div align="center">
 
-Made with ☕ and Java
+Made with Java
 
 </div>
