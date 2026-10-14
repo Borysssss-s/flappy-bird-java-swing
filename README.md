@@ -64,7 +64,7 @@
 
 ```bash
 # Clone the repository
-git clone (https://github.com/Borysssss-s/flappy-bird-java-swing)
+git clone https://github.com/Borysssss-s/flappy-bird-java-swing
 cd YOUR_REPO
 
 # Compile (images must be next to the compiled classes)
