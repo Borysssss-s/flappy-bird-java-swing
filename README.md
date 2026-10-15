@@ -89,60 +89,6 @@ The game expects these files in the same folder as the sources:
 | `toppipe.png` | Top pipe |
 | `bottompipe.png` | Bottom pipe |
 
----
-
-## 🏗️ Architecture
-
-The project follows an MVC-like layout where the **model has no dependency on Swing**.
-
-```mermaid
-classDiagram
-    class App
-    class GameController
-    class GameModel
-    class GameView {
-        <<interface>>
-    }
-    class GamePanel
-    class GameInputHandler
-    class Bird
-    class Pipe
-    class PipeFactory
-    class AssetLoader
-
-    App ..> GameModel : creates
-    App ..> GamePanel : creates
-    App ..> GameController : creates
-    GameController --> GameModel : updates
-    GameController --> GameView : renders
-    GamePanel ..|> GameView
-    GamePanel --> GameModel : reads
-    GamePanel --> AssetLoader : uses
-    GameInputHandler --> GameController : delegates
-    GameModel o-- Bird
-    GameModel o-- Pipe
-    GameModel --> PipeFactory : uses
-    PipeFactory ..> Pipe : creates
-```
-
-**Game flow:** a timer in `GameController` triggers a frame → `GameModel.update()` applies the rules → `GameView.render()` redraws the screen.
-
----
-
-## 🎯 GRASP principles applied
-
-| Class | GRASP pattern | Why |
-|---|---|---|
-| `Bird`, `Pipe`, `GameModel` | **Information Expert**, **High Cohesion** | Each one manages its own data and rules |
-| `PipeFactory` | **Creator**, **Pure Fabrication** | Isolates how pipes are created |
-| `GameController` | **Controller** | Handles system events and coordinates model and view |
-| `GameView` / `GamePanel` | **Polymorphism**, **Protected Variations** | The view can change without affecting the rest |
-| `GameInputHandler` | **Low Coupling** | Only class that knows the actual keys |
-| `AssetLoader`, `GameConfig` | **Pure Fabrication** | Separate resource loading and constants |
-| `App` | **Composition root** | The only place where objects are wired together |
-
----
-
 ## 📂 Project structure
 
 ```
