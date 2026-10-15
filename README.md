@@ -24,8 +24,6 @@
 - [Features](#-features)
 - [How to play](#-how-to-play)
 - [Getting started](#-getting-started)
-- [Architecture](#-architecture)
-- [GRASP principles applied](#-grasp-principles-applied)
 - [Project structure](#-project-structure)
 - [Documentation](#-documentation)
 
